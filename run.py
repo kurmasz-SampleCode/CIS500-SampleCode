@@ -22,8 +22,8 @@ class Run:
 
     unit = "km"
 
-    def __init__(self, start_time, end_time, distance):
-        self.distance = distance
+    def __init__(self, distance, start_time, end_time):
+        self.distance = float(distance)
         self.raw_start = Run._time_to_minutes(start_time)
         self.raw_end = Run._time_to_minutes(end_time)
 
@@ -45,7 +45,7 @@ class Run:
     def pace(self):
         minutes = int(self.raw_pace())
         seconds = int((self.raw_pace() - minutes)*60)
-        return f"{minutes}:{seconds}/{Run.unit}"
+        return f"{minutes}:{seconds:02d}/{Run.unit}"
 
     def __str__(self):
         return f"{self.distance} {Run.unit}s in {self.elapsed_time()}. Pace: {self.pace()}."
