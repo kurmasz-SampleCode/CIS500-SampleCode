@@ -14,6 +14,7 @@ s = SavingsAccount('Sam Saver', '23 Maple Street', 0.03)
 s.deposit(100, datetime(2023, 11, 1, 12, 30))
 s.deposit(5000, datetime(2023, 11, 4, 15, 45))
 s.deposit(22350, datetime(2023, 11, 6, 8, 0))
+s.pay_interest(datetime(2023, 11, 30, 8, 0))
 
 c = CheckingAccount('Charlie Czechmeister', '22b Baker Street')
 c.deposit(2100, datetime(2023, 11, 1, 12, 31))
