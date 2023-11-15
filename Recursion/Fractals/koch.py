@@ -34,17 +34,17 @@ class KochSnowflake(Drawing):
 
         return [start, first_third, peak, second_third, end]
 
-    def draw_line(self, start, end, depth):
-        if depth == 0:
+    def draw_line(self, start, end, remaining_depth):
+        if remaining_depth == 0:
             self.canvas.create_line(start, end)
             return
 
         points = KochSnowflake.peaked_line_points(start, end)
 
-        self.draw_line(points[0], points[1], depth -1)
-        self.draw_line(points[1], points[2], depth -1)
-        self.draw_line(points[2], points[3], depth -1)
-        self.draw_line(points[3], points[4], depth -1)
+        self.draw_line(points[0], points[1], remaining_depth - 1)
+        self.draw_line(points[1], points[2], remaining_depth - 1)
+        self.draw_line(points[2], points[3], remaining_depth - 1)
+        self.draw_line(points[3], points[4], remaining_depth - 1)
 
     def draw(self):
 

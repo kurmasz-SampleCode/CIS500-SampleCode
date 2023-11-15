@@ -43,4 +43,14 @@ def get_input_v3():
     else:
         print("Thank-you. (3)")
         return word
-get_input_v3()
+# get_input_v3()
+
+def count_down(counter):
+    if (counter <= 0):
+        print("Go!")
+    else:
+        print(counter)
+        count_down(counter - 2)
+
+
+count_down(9)

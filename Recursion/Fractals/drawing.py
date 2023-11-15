@@ -1,5 +1,5 @@
 import tkinter as tk
-
+import math
 class Drawing:
     def __init__(self, width, height):
         self.width = width
@@ -36,6 +36,7 @@ class Triangle(Drawing):
 
         x1 = self.width/2
         y1 = (self.height - triangle_height) / 2.0
+        print(f"{self.height} -- {triangle_height} -- {y1}")
 
         x2 = x1 - half_triangle_width
         y2 = y1 + triangle_height
@@ -45,7 +46,19 @@ class Triangle(Drawing):
 
         self.canvas.create_line(x1, y1, x2, y2, x3, y3, x1, y1, fill='red')
 
+class Both(Drawing):
+    def __init__(self, width, height):
+        super().__init__(width, height)
+
+    def draw(self):
+
+        # This is using Square and Triangle as "mix in"s.
+        # Use with caution.
+        Square.draw(self)
+        Triangle.draw(self)
+
 
 if __name__ == '__main__':
     Square(800,800)
     Triangle(800, 800)
+    Both(500,500)
