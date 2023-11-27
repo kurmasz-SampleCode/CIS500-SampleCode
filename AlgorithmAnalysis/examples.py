@@ -1,3 +1,10 @@
+def sum_list(lst):
+    sum = 0 
+    for value in lst:
+      sum += value
+    return sum
+
+
 def sum_list_raw(lst):
     sum = 0
     index = 0
@@ -7,18 +14,11 @@ def sum_list_raw(lst):
         index += 1
     return sum
 
-def sum_list(lst):
-    sum = 0 
-    for value in lst:
-      sum += value;
-    return sum
-
 def multiply_list(lst):
     sum = 1 
     for value in lst:
       sum *= value;
     return sum
-
 
 
 def location_of_max(lst):
