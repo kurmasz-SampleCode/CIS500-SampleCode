@@ -64,7 +64,40 @@ def linear_search(findMe, lst):
 
 
 def trick1(lst):
-    total = 0;
+    total = 0
     for i in range(0, 10):
-      total += lst[i % 10]
+      total += lst[i % len(lst)]
     return total 
+
+def trick2(lst):
+    total = 0
+    for i in range(0, len(lst)):
+      if (i % 2 == 0):
+        total += location_of_max(lst)
+      else:
+        total += lst[i]
+    return total
+
+def trick3(lst):
+    total = 0
+    for i in range(0, len(lst)):
+      if (i == len(lst) / 2):
+        total += location_of_max(lst)
+      else:
+        total += lst[i]
+    return total
+
+print(trick3([2, 4, 6, 8, 10]))
+
+
+
+def meet_everybody_v1(people): # List of People objects
+    for p1 in people:
+      for p2 in people:
+        if p1 != p2:
+          p1.meet(p2)
+
+def meet_everybody_v2(people):
+    for index1 in range(0, len(people)):
+     for index2 in range(index1 +1, len(people)):
+        people[index1].meet(people[index2]);
