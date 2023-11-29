@@ -17,22 +17,21 @@ def sum_list_raw(lst):
 def multiply_list(lst):
     sum = 1 
     for value in lst:
-      sum *= value;
+      sum *= value
     return sum
 
 
 def location_of_max(lst):
-    loc_of_max = 0;
+    loc_of_max = 0
     for index, value in enumerate(lst):
       if (lst[index] > lst[loc_of_max]):
         loc_of_max = index
     return loc_of_max
 
 def fast_mode(lst):
-    loc = location_of_max(lst);  # O(n)
+    loc = location_of_max(lst)  # O(n)
     max_value = lst[loc]
     count = [0] * (max_value + 1)
-    print(count)
 
     for val in lst:
         count[val] += 1
@@ -100,4 +99,45 @@ def meet_everybody_v1(people): # List of People objects
 def meet_everybody_v2(people):
     for index1 in range(0, len(people)):
      for index2 in range(index1 +1, len(people)):
-        people[index1].meet(people[index2]);
+        people[index1].meet(people[index2])
+
+def Selection_Sort(array):
+    for i in range(0, len(array) - 1):
+        smallest = i
+        for j in range(i + 1, len(array)):
+            if array[j] < array[smallest]:
+                smallest = j
+        array[i], array[smallest] = array[smallest], array[i]
+
+
+def binarySearch(array, x, low, high):
+
+    # Repeat until the pointers low and high meet each other
+    while low <= high:
+        mid = low + (high - low)//2
+        if array[mid] == x:
+            return mid
+        elif array[mid] < x:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+
+def binarySearch(array, x, low, high):
+
+    if high >= low:
+        mid = low + (high - low)//2
+
+        # If found at mid, then return it
+        if array[mid] == x:
+            return mid
+
+        # Search the left half
+        elif array[mid] > x:
+            return binarySearch(array, x, low, mid-1)
+        # Search the right half
+        else:
+            return binarySearch(array, x, mid + 1, high)
+    else:
+        return -1

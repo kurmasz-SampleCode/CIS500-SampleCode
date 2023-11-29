@@ -7,7 +7,7 @@ Point = namedtuple('Point', ['x', 'y'])
 
 class KochSnowflake(Drawing):
 
-    DEPTH = 7
+    DEPTH = 2
 
     def __init__(self, width, height):
          super().__init__(width, height)
@@ -64,4 +64,4 @@ class KochSnowflake(Drawing):
 
 
 if __name__ == '__main__':
-    KochSnowflake(1200, 1200)
+    KochSnowflake(800, 800)
